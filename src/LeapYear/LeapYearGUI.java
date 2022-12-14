@@ -52,7 +52,7 @@ public class LeapYearGUI extends JFrame {
         try {
             year = Integer.parseInt(tfYear.getText());
             if(year < 0){
-                JOptionPane.showMessageDialog(null, "Year cannot be negative.", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(panel1, "Year cannot be negative.", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -60,8 +60,12 @@ public class LeapYearGUI extends JFrame {
                 JOptionPane.showMessageDialog(null, "Leap year");
             } else
                 JOptionPane.showMessageDialog(null, "Not a leap year");
+
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Input must be a number.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panel1, "Input must be a number.", "Warning", JOptionPane.WARNING_MESSAGE);
+            throw new NumberFormatException(e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(panel1, "How did we get here?", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
