@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class SimpleCalcGUI extends JFrame {
-    private String[] operations = {"+", "-", "*", "/"};
     private JPanel panel1;
     private JTextField tfNumber1;
     private JComboBox cbOperations;
@@ -59,19 +58,23 @@ public class SimpleCalcGUI extends JFrame {
     }
 
     public long calculate() {
-        long num1 = Long.parseLong(tfNumber1.getText()), num2 = Long.parseLong(tfNumber2.getText());
+        try {
+            long num1 = Long.parseLong(tfNumber1.getText()), num2 = Long.parseLong(tfNumber2.getText());
 
-        if(cbOperations.getSelectedIndex() == 0){
-            return num1 + num2;
-        }
-        if(cbOperations.getSelectedIndex() == 1){
-            return num1 - num2;
-        }
-        if(cbOperations.getSelectedIndex() == 2){
-            return num1 * num2;
-        }
-        if(cbOperations.getSelectedIndex() == 3){
-            return num1 / num2;
+            if (cbOperations.getSelectedIndex() == 0) {
+                return num1 + num2;
+            }
+            if (cbOperations.getSelectedIndex() == 1) {
+                return num1 - num2;
+            }
+            if (cbOperations.getSelectedIndex() == 2) {
+                return num1 * num2;
+            }
+            if (cbOperations.getSelectedIndex() == 3) {
+                return num1 / num2;
+            }
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(panel1, new NumberFormatException(e.getMessage()), "Please input numbers", JOptionPane.WARNING_MESSAGE);
         }
         return 0;
     }
