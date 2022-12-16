@@ -48,7 +48,7 @@ public class FoodOrderGUI extends JFrame {
                 if(cFries.isSelected())
                     friesPrice=65;
                 else
-                    burgerPrice=0;
+                    friesPrice=0;
             }
         });
         cSoftDrinks.addActionListener(new ActionListener() {
@@ -57,7 +57,7 @@ public class FoodOrderGUI extends JFrame {
                 if(cSoftDrinks.isSelected())
                     softDrinksPrice=55;
                 else
-                    burgerPrice=0;
+                    softDrinksPrice=0;
             }
         });
         cTea.addActionListener(new ActionListener() {
@@ -75,7 +75,7 @@ public class FoodOrderGUI extends JFrame {
                 if(cSundae.isSelected())
                     sundaePrice=40;
                 else
-                    teaPrice=0;
+                    sundaePrice=0;
             }
         });
         btnOrder.addActionListener(new ActionListener() {
